@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Orders | Vaishnavi Furniture</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+  <div class="container py-4">
+    <h2 class="mb-4">🧾 Customer Orders</h2>
+    <ul id="order-list" class="list-group"></ul>
+  </div>
+
+  <!-- Edit Product Modal -->
+  <div class="modal fade" id="editProductModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="edit-product-form">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Product</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="edit-product-id">
+            <div class="mb-3">
+              <label for="edit-name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="edit-name" required>
+            </div>
+            <div class="mb-3">
+              <label for="edit-category" class="form-label">Category</label>
+              <input type="text" class="form-control" id="edit-category" required>
+            </div>
+            <div class="mb-3">
+              <label for="edit-price" class="form-label">Price</label>
+              <input type="number" class="form-control" id="edit-price" required>
+            </div>
+            <div class="mb-3">
+              <label for="edit-image" class="form-label">Image</label>
+              <input type="file" class="form-control" id="edit-image">
+              <img id="edit-preview" src="#" alt="Preview" class="img-fluid mt-2 d-none">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { db } from "../assets/js/firebase.js";
+    import {
+      collection,
+      getDocs,
+      updateDoc,
+      doc
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    import {
+      getStorage,
+      ref,
+      uploadBytes,
+      getDownloadURL
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+    const orderCollection = collection(db, "orders");
+    const productCollection = collection(db, "products");
+    const storage = getStorage();
+
+    async function loadOrders() {
+      const productSnap = await getDocs(productCollection);
+      const products = {};
+      productSnap.forEach(p => products[p.id] = p.data());
+
+      const orderSnap = await getDocs(orderCollection);
+      const list = document.getElementById("order-list");
+      list.innerHTML = "";
+
+      if (orderSnap.empty) {
+        list.innerHTML = "<li class='list-group-item text-muted'>No orders yet.</li>";
+        return;
+      }
+
+      orderSnap.forEach(docSnap => {
+        const order = docSnap.data();
+        const orderId = docSnap.id;
+
+        const item = document.createElement("li");
+        item.className = "list-group-item mb-2";
+
+        const itemList = order.items.map(i => {
+          const product = products[i.productId];
+          const name = product ? product.name : i.productId;
+          return `${i.qty} × ${name}`;
+        }).join(", ");
+
+        item.innerHTML = `
+          <div class="mb-2">
+            <strong>${order.customer.name}</strong> | ${order.customer.phone}<br>
+            <small>${order.customer.address}</small>
+          </div>
+          <div class="mb-2">
+            ${itemList}<br>
+            <strong>Total:</strong> ₹${order.total.toLocaleString()}
+          </div>
+          <div class="d-flex align-items-center">
+            <label class="me-2">Status:</label>
+            <select class="form-select form-select-sm w-auto" onchange="updateOrderStatus('${orderId}', this.value)">
+              ${["new", "in-progress", "shipped", "delivered"].map(status => `
+                <option value="${status}" ${status === order.orderStatus ? "selected" : ""}>${status}</option>
+              `).join("")}
+            </select>
+          </div>
+        `;
+
+        list.appendChild(item);
+      });
+    }
+
+    window.updateOrderStatus = async function (orderId, newStatus) {
+      const ref = doc(db, "orders", orderId);
+      await updateDoc(ref, { orderStatus: newStatus });
+      alert("✅ Order status updated.");
+    }
+
+    // Handle Edit Product Modal
+    const editForm = document.getElementById("edit-product-form");
+    editForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const id = document.getElementById("edit-product-id").value;
+      const name = document.getElementById("edit-name").value;
+      const category = document.getElementById("edit-category").value;
+      const price = parseInt(document.getElementById("edit-price").value);
+      const file = document.getElementById("edit-image").files[0];
+
+      let imageUrl = null;
+      if (file) {
+        const storageRef = ref(storage, `vaishnavi-products/${id}.jpg`);
+        await uploadBytes(storageRef, file);
+        imageUrl = await getDownloadURL(storageRef);
+      }
+
+      const updateData = { name, category, price };
+      if (imageUrl) updateData.image = imageUrl;
+
+      await updateDoc(doc(db, "products", id), updateData);
+      alert("✅ Product updated.");
+      location.reload();
+    });
+
+    window.openEditModal = function (product) {
+      document.getElementById("edit-product-id").value = product.id;
+      document.getElementById("edit-name").value = product.name;
+      document.getElementById("edit-category").value = product.category;
+      document.getElementById("edit-price").value = product.price;
+      document.getElementById("edit-preview").src = product.image;
+      document.getElementById("edit-preview").classList.remove("d-none");
+      new bootstrap.Modal(document.getElementById("editProductModal")).show();
+    }
+
+    loadOrders();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

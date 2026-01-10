@@ -1,0 +1,62 @@
+[
+  {
+    "id": "mandir001",
+    "name": "Carved Teak Mandir",
+    "category": "mandir",
+    "price": 12500,
+    "stock": 3,
+    "dimensions": "36x18x48 in",
+    "image": "assets/images/mandir001.jpg",
+    "description": "Beautifully handcrafted teakwood mandir with traditional arch design."
+  },
+  {
+    "id": "cnc001",
+    "name": "Modern CNC Panel",
+    "category": "cnc",
+    "price": 6800,
+    "stock": 5,
+    "dimensions": "48x24 in",
+    "image": "assets/images/cnc001.jpg",
+    "description": "Contemporary CNC-cut floral panel perfect for living room dividers."
+  },
+  {
+    "id": "jali001",
+    "name": "Laser Jali Partition",
+    "category": "jali",
+    "price": 4200,
+    "stock": 7,
+    "dimensions": "36x72 in",
+    "image": "assets/images/jali001.jpg",
+    "description": "Elegant MDF jali with geometric design, great for space separation."
+  },
+  {
+    "id": "design3d001",
+    "name": "3D Lotus Panel",
+    "category": "design3d",
+    "price": 9800,
+    "stock": 4,
+    "dimensions": "24x36 in",
+    "image": "assets/images/design3d001.jpg",
+    "description": "3D carved lotus wall panel that adds depth and elegance to decor."
+  },
+  {
+    "id": "kitchen001",
+    "name": "Modular Kitchen Set",
+    "category": "kitchen",
+    "price": 45500,
+    "stock": 2,
+    "dimensions": "10x8 ft",
+    "image": "assets/images/kitchen001.jpg",
+    "description": "Stylish modular kitchen with soft-close drawers and CNC cabinet fronts."
+  },
+  {
+    "id": "showcase001",
+    "name": "Wooden Showcase Unit",
+    "category": "showcase",
+    "price": 11800,
+    "stock": 6,
+    "dimensions": "60x18x72 in",
+    "image": "assets/images/showcase001.jpg",
+    "description": "Multi-shelf showcase unit with glass panels and storage drawers."
+  }
+]
