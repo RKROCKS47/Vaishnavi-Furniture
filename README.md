@@ -1,6 +1,6 @@
 # Vaishnavi Furniture 🪑
 
-Vaishnavi Furniture is a modern furniture and cooling solutions website built to showcase products like sofas, beds, wardrobes, and cnc designs for a local retail business. It focuses on clean UI, simple navigation, and a responsive layout suitable for real-world use.
+Vaishnavi Furniture is a modern furniture and cooling solutions website built to showcase products like sofas, beds,mandir, wardrobes, and cnc designs for a local retail business. It focuses on clean UI, simple navigation, and a responsive layout suitable for real-world use.
 
 ## 🚀 Live Demo
 
