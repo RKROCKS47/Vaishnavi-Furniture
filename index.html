@@ -242,7 +242,7 @@
       <div class="row align-items-center">
         <div class="col-md-6 mb-4 mb-md-0">
           <!-- ✅ fixed slashes -->
-         <img src="assets/images/vf.png" class="img-fluid rounded shadow" alt="Workshop" height="200" width="100%">
+         <img src="assets\images\vf.png" class="img-fluid rounded shadow" alt="Workshop" height="200" width="100%">
           <p class="mt-3">Our workshop is equipped with the latest CNC technology,</p>
         </div>
 
@@ -298,7 +298,7 @@
     });
   </script>
 
-  <!-- Contact form WhatsApp -->
+   <!-- Contact form WhatsApp (✅ FIXED: no this.name usage) -->
   <script>
     document.getElementById("contact-form").addEventListener("submit", function (e) {
       e.preventDefault();
@@ -307,11 +307,6 @@
       const contactField = document.getElementById("contact");
       const workTypeField = document.getElementById("workType");
       const messageField = document.getElementById("message");
-
-      if (!nameField || !contactField || !workTypeField || !messageField) {
-        alert("Form fields missing. Please reload the page.");
-        return;
-      }
 
       const name = nameField.value.trim();
       const contact = contactField.value.trim();
@@ -334,12 +329,11 @@ ${message}
       `.trim();
 
       const phone = "917972803288";
-      const encoded = encodeURIComponent(waMessage);
-      const waLink = `https://wa.me/${phone}?text=${encoded}`;
+      const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(waMessage)}`;
 
       window.open(waLink, "_blank");
       alert("✅ Thank you! Your inquiry has been forwarded via WhatsApp.");
-      document.getElementById("contact-form").reset();
+      e.target.reset();
     });
   </script>
 
