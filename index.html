@@ -1,58 +1,40 @@
-<!DOCTYPE html><body style="background-color:powderblue;"></body>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vaishnavi Furniture</title>
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
   <style>
-      html {
-    scroll-behavior: smooth;
-  }
-  
-    .navbar-brand span {
-      color: #A0522D; /* Wooden Brown */
-      font-weight: bold;
-    }
-    .navbar-nav .nav-link.active {
-      color: #A0522D;
-      font-weight: bold;
-    }
-    .navbar-nav .nav-link:hover {
-      color: #8B4513;
-    }
-    .tagline {
-      font-size: 0.8rem;
-      color: gray;
-      margin-top: -10px;
-    }
-    .filter-btn.active {
-  background-color: #A0522D;
-  color: white;
-
-  
-}
-
+    html { scroll-behavior: smooth; }
+    .navbar-brand span { color: #A0522D; font-weight: bold; }
+    .navbar-nav .nav-link.active { color: #A0522D; font-weight: bold; }
+    .navbar-nav .nav-link:hover { color: #8B4513; }
+    .tagline { font-size: 0.8rem; color: gray; margin-top: -10px; }
+    .filter-btn.active { background-color: #A0522D; color: white; }
   </style>
 </head>
-<body>
-    <section id="home"></section>
 
-<!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+<body style="background-color:powderblue;">
+  <section id="home"></section>
+
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#home">
         <span>Vaishnavi</span> Furniture<br>
         <small class="tagline">Elegant CNC Designs for Every Space</small>
       </a>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
+
       <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
@@ -60,21 +42,26 @@
           <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
           <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-          
-          <li class="nav-item"><a class="nav-link" href="\admin\admin.html">Admin</a></li>
+
+          <!-- ✅ fixed path -->
+          <li class="nav-item"><a class="nav-link" href="/admin/admin.html">Admin</a></li>
         </ul>
+
         <div class="d-flex align-items-center">
           <a href="#" class="me-3 text-dark"><i class="bi bi-search"></i></a>
           <a href="cart.html" class="me-3 text-dark"><i class="bi bi-cart"></i></a>
-          <a href="\admin\admin.html" class="text-dark"><i class="bi bi-person-circle"></i></a>
+
+          <!-- ✅ fixed path -->
+          <a href="/admin/admin.html" class="text-dark"><i class="bi bi-person-circle"></i></a>
         </div>
       </div>
     </div>
   </nav>
   <!-- Navbar End -->
-  <!-- https://images.unsplash.com/photo-1600585154340-be6161a56a0c -->
- <!-- Hero Section Start -->
-<section class="py-5 text-center text-white" style="background: url('https://i.etsystatic.com/30373584/r/il/d65d5e/5061496090/il_fullxfull.5061496090_ylyo.jpg') center/cover no-repeat; min-height: 90vh;">
+
+  <!-- Hero Section Start -->
+  <section class="py-5 text-center text-white"
+    style="background: url('https://i.etsystatic.com/30373584/r/il/d65d5e/5061496090/il_fullxfull.5061496090_ylyo.jpg') center/cover no-repeat; min-height: 90vh;">
     <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 90vh;">
       <h1 class="display-4 fw-bold">Welcome to Vaishnavi Furniture</h1>
       <p class="lead mb-4">Beautiful CNC Designs for Interiors, Exteriors, Mandirs, and More</p>
@@ -85,200 +72,188 @@
     </div>
   </section>
   <!-- Hero Section End -->
-<!-- Gallery Section Start -->
-<section class="py-5 bg-light" id="gallery">
-  <div class="container text-center">
-    <h2 class="mb-4">Our Work Gallery</h2>
 
-    <!-- Filter Buttons -->
-    <div class="mb-4">
-      <button class="btn btn-outline-dark me-2 filter-btn" data-category="all">All</button>
-      <button class="btn btn-outline-dark me-2 filter-btn" data-category="mandir">Mandir</button>
-      <button class="btn btn-outline-dark me-2 filter-btn" data-category="cnc">CNC Panels</button>
-      <button class="btn btn-outline-dark me-2 filter-btn" data-category="jali">Jali Cutting</button>
-      <button class="btn btn-outline-dark me-2 filter-btn" data-category="design3d">3D Designs</button>
-      <button class="btn btn-outline-dark me-2 filter-btn" data-category="kitchen">Kitchen Designs</button>
-      <button class="btn btn-outline-dark filter-btn" data-category="showcase">Showcases</button>
+  <!-- Gallery Section Start -->
+  <section class="py-5 bg-light" id="gallery">
+    <div class="container text-center">
+      <h2 class="mb-4">Our Work Gallery</h2>
+
+      <div class="mb-4">
+        <button class="btn btn-outline-dark me-2 filter-btn" data-category="all">All</button>
+        <button class="btn btn-outline-dark me-2 filter-btn" data-category="mandir">Mandir</button>
+        <button class="btn btn-outline-dark me-2 filter-btn" data-category="cnc">CNC Panels</button>
+        <button class="btn btn-outline-dark me-2 filter-btn" data-category="jali">Jali Cutting</button>
+        <button class="btn btn-outline-dark me-2 filter-btn" data-category="design3d">3D Designs</button>
+        <button class="btn btn-outline-dark me-2 filter-btn" data-category="kitchen">Kitchen Designs</button>
+        <button class="btn btn-outline-dark filter-btn" data-category="showcase">Showcases</button>
+      </div>
+
+      <div class="row" id="gallery-grid">
+        <!-- Cards will be loaded here by products.js -->
+      </div>
     </div>
+  </section>
+  <!-- Gallery Section End -->
 
-    <!-- Gallery Grid (Dynamic via JS) -->
-    <div class="row" id="gallery-grid">
-      <!-- Cards will be loaded here by products.js -->
-    </div>
-  </div>
-</section>
-
-<!-- Contact & Order Form Start -->
-<form id="contact-form">
-  <!-- <div class="mb-3"> -->
+  <!-- Contact & Order Form Start -->
+  <section class="py-5" id="contact">
     <div class="container">
       <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        <div class="card shadow border-0">
-          <div class="card-body p-4">
-            <h3 class="text-center mb-4">Contact & Order Form</h3>
-            <form id="contact-form">
-              <div class="mb-3">
-   <label for="name" class="form-label">Full Name</label>
-                <input type="text" id="name" name="name" class="form-control" required>
-              </div>
+        <div class="col-md-8 col-lg-6">
+          <div class="card shadow border-0">
+            <div class="card-body p-4">
+              <h3 class="text-center mb-4">Contact & Order Form</h3>
 
-              <div class="mb-3">
-                <label for="contact" class="form-label">Email or Phone</label>
-                <input type="text" id="contact" name="contact" class="form-control" required>
-              </div>
+              <!-- ✅ only ONE form (no nesting) -->
+              <form id="contact-form">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input type="text" id="name" name="name" class="form-control" required>
+                </div>
 
-              <div class="mb-3">
-                <label for="workType" class="form-label">Type of Work</label>
-                <select id="workType" name="workType" class="form-select" required>
-                  <option selected disabled>Choose...</option>
-                  <option value="mandir">Mandir</option>
-                  <option value="cnc">CNC Panel</option>
-                  <option value="jali">Jali Cutting</option>
-                  <option value="3d">3D Design</option>
-                  <option value="kitchen">Kitchen Design</option>
-                  <option value="showcase">Showcase</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
+                <div class="mb-3">
+                  <label for="contact" class="form-label">Email or Phone</label>
+                  <input type="text" id="contact" name="contact" class="form-control" required>
+                </div>
 
-   <div class="mb-3">
-                <label for="message" class="form-label">Message / Requirements</label>
-                <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
-              </div>
+                <div class="mb-3">
+                  <label for="workType" class="form-label">Type of Work</label>
+                  <select id="workType" name="workType" class="form-select" required>
+                    <option selected disabled>Choose...</option>
+                    <option value="mandir">Mandir</option>
+                    <option value="cnc">CNC Panel</option>
+                    <option value="jali">Jali Cutting</option>
+                    <option value="3d">3D Design</option>
+                    <option value="kitchen">Kitchen Design</option>
+                    <option value="showcase">Showcase</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
 
- <div class="d-grid">
-                <button type="submit" class="btn btn-primary btn-lg">📩 Send Message via WhatsApp</button>
-              </div>
-            </form>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message / Requirements</label>
+                  <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                </div>
+
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-lg">📩 Send Message via WhatsApp</button>
+                </div>
+              </form>
+
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</form>
-
+  </section>
   <!-- Contact & Order Form End -->
-<!-- Testimonials Start -->
-<!-- Testimonials Start -->
-<section class="py-5 bg-light" id="testimonials">
-  <div class="container">
-    <h2 class="text-center mb-4">What Our Customers Say</h2>
 
-    <!-- ⭐ live review cards will be inserted here -->
-    <div id="testimonial-wrap" class="row"></div>
+  <!-- Testimonials Start -->
+  <section class="py-5 bg-light" id="testimonials">
+    <div class="container">
+      <h2 class="text-center mb-4">What Our Customers Say</h2>
 
-    <!-- ◀▶ Toggle -->
-    <div class="text-center mt-3">
-      <button id="more-reviews" class="btn btn-outline-primary btn-sm d-none">
-        View more
-      </button>
+      <div id="testimonial-wrap" class="row"></div>
+
+      <div class="text-center mt-3">
+        <button id="more-reviews" class="btn btn-outline-primary btn-sm d-none">View more</button>
+      </div>
+
+      <form id="review-form" class="mt-4">
+        <input type="text" id="review-author" class="form-control mb-2" placeholder="Your Name" required>
+        <textarea id="review-text" class="form-control mb-2" placeholder="Write your feedback…" rows="3" required></textarea>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+      </form>
     </div>
 
-    <!-- ✍️ Add Testimonial Form -->
-    <form id="review-form" class="mt-4">
-      <input type="text"  id="review-author" class="form-control mb-2"
-             placeholder="Your Name" required>
-      <textarea   id="review-text"   class="form-control mb-2"
-             placeholder="Write your feedback…" rows="3" required></textarea>
-      <button type="submit" class="btn btn-primary">Submit Review</button>
-    </form>
-  </div>
+    <!-- 🔌 Firestore logic -->
+    <script type="module">
+      import { db } from "./assets/js/firebase.js";
+      import { collection, addDoc, getDocs }
+        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-  <!-- 🔌 Firestore logic -->
-  <script type="module">
-    import { db }                     from "./assets/js/firebase.js";
-    import { collection, addDoc,
-             getDocs }                from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+      const reviewCol = collection(db, "reviews");
+      const wrap = document.getElementById("testimonial-wrap");
+      const toggleBtn = document.getElementById("more-reviews");
 
-    const reviewCol   = collection(db,"reviews");
-    const wrap        = document.getElementById("testimonial-wrap");
-    const toggleBtn   = document.getElementById("more-reviews");
-    let   reviewsArr  = [];
-    let   showCount   = 3;
+      let reviewsArr = [];
+      let showCount = 3;
 
-    /* 🚀 Load & render */
-    async function loadReviews() {
-      reviewsArr = [];
-      const snap = await getDocs(reviewCol);
-      snap.forEach(d=>reviewsArr.push(d.data()));
-      toggleBtn.classList.toggle("d-none", reviewsArr.length<=3);
-      render();
-    }
+      async function loadReviews() {
+        reviewsArr = [];
+        const snap = await getDocs(reviewCol);
+        snap.forEach(d => reviewsArr.push(d.data()));
+        toggleBtn.classList.toggle("d-none", reviewsArr.length <= 3);
+        render();
+      }
 
-    function render() {
-      wrap.innerHTML = "";
-      reviewsArr.slice(0, showCount).forEach(r=>{
-        wrap.insertAdjacentHTML("beforeend",`
-          <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
-              <div class="card-body">
-                <p class="card-text">"${r.text}"</p>
-                <h6 class="card-subtitle text-muted">– ${r.author}</h6>
+      function render() {
+        wrap.innerHTML = "";
+        reviewsArr.slice(0, showCount).forEach(r => {
+          wrap.insertAdjacentHTML("beforeend", `
+            <div class="col-md-4 mb-4">
+              <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                  <p class="card-text">"${r.text}"</p>
+                  <h6 class="card-subtitle text-muted">– ${r.author}</h6>
+                </div>
               </div>
             </div>
-          </div>`);
+          `);
+        });
+      }
+
+      toggleBtn.onclick = () => {
+        const allShown = showCount >= reviewsArr.length;
+        showCount = allShown ? 3 : reviewsArr.length;
+        toggleBtn.textContent = allShown ? "View more" : "View less";
+        render();
+      };
+
+      document.getElementById("review-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const author = document.getElementById("review-author").value.trim();
+        const text = document.getElementById("review-text").value.trim();
+
+        if (!author || !text) return alert("Please fill in both fields.");
+
+        await addDoc(reviewCol, {
+          author,
+          text,
+          createdAt: new Date().toISOString()
+        });
+
+        e.target.reset();
+        alert("✅ Review submitted!");
+        loadReviews();
       });
-    }
 
-    /* ▶ Toggle */
-    toggleBtn.onclick = () => {
-      const allShown = showCount >= reviewsArr.length;
-      showCount = allShown ? 3 : reviewsArr.length;
-      toggleBtn.textContent = allShown ? "View more" : "View less";
-      render();
-    };
+      loadReviews();
+    </script>
+  </section>
+  <!-- Testimonials End -->
 
-    /* ➕ Submit Review */
-   /* ➕ Submit Review */
-document.getElementById("review-form").addEventListener("submit", async e=>{
-  e.preventDefault();
-
-  const author = document.getElementById("review-author").value.trim();
-  const text   = document.getElementById("review-text").value.trim();
-
-  if(!author || !text) {
-    alert("Please fill in both fields.");
-    return;
-  }
-
-  await addDoc(reviewCol, {
-    author,
-    text,
-    createdAt: new Date().toISOString()
-  });
-
-  e.target.reset();
-  alert("✅ Review submitted!");
-  loadReviews();          // refresh list
-});
-
-
-    loadReviews();
-  </script>
-</section>
-<!-- Testimonials End -->
-
-   
-<!-- Testimonials End -->
-
-<!-- About Us + Team Start -->
-<section class="py-5" id="about">
+  <!-- About Us + Team Start -->
+  <section class="py-5" id="about">
     <div class="container">
       <h2 class="text-center mb-4">About Vaishnavi Furniture</h2>
+
       <div class="row align-items-center">
         <div class="col-md-6 mb-4 mb-md-0">
-          <img src="assets\images\VF.PNG" class="img-fluid rounded shadow" alt="Workshop" height="200" width="100%">
-          <p class="mt-3">Our workshop is equipped with the latest CNC technology,
+          <!-- ✅ fixed slashes -->
+          <img src="assets/images/VF.PNG" class="img-fluid rounded shadow" alt="Workshop" height="200" width="100%">
+          <p class="mt-3">Our workshop is equipped with the latest CNC technology,</p>
         </div>
+
         <div class="col-md-6">
           <p>Vaishnavi Furniture is a family-run business specializing in exquisite CNC and 3D design work. From beautiful Mandirs to elegant kitchen interiors and custom showcases, our expert craftsmanship brings wood to life. We blend tradition with modern design, offering complete interior & exterior solutions.</p>
           <p>With years of experience, dedication, and artistic passion, we’ve transformed countless homes and commercial spaces with unique woodwork.</p>
         </div>
       </div>
-  
+
       <hr class="my-5">
-  
+
       <h3 class="text-center mb-4">Meet Our Team</h3>
       <div class="row text-center">
         <div class="col-md-4 mb-4">
@@ -286,74 +261,72 @@ document.getElementById("review-form").addEventListener("submit", async e=>{
           <h5 class="mb-12">Mr.Kalidas Ingale</h5>
           <small class="text-muted">Founder & Master Craftsman</small>
         </div>
+
         <div class="col-md-4 mb-4">
           <img src="assets/images/R.jpeg" class="rounded-circle mb-2" alt="Developer" height="200" width="100">
           <h5 class="mb-0">Rohit Ingale</h5>
           <small class="text-muted">Web Developer & Designer</small>
         </div>
+
         <div class="col-md-4 mb-4">
           <img src="assets/images/v.jpeg" class="rounded-circle mb-2" alt="Architect" height="200" width="100">
           <h5 class="mb-0">Vaishnavi Ingale</h5>
           <small class="text-muted">Architect Designer</small>
         </div>
-        
       </div>
     </div>
   </section>
   <!-- About Us + Team End -->
-        
-  
+
   <!-- Filter Script -->
-<script>
-/* assets/js/filter.js – runs after products.js */
-document.addEventListener("DOMContentLoaded", () => {
-  const filterButtons = document.querySelectorAll(".filter-btn");
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterButtons = document.querySelectorAll(".filter-btn");
 
-  filterButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      /* highlight the active button */
-      filterButtons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
 
-      const category = btn.dataset.category;
+          const category = btn.dataset.category;
 
-      /* grab *current* .gallery-item nodes (includes dynamically-added cards) */
-      document.querySelectorAll(".gallery-item").forEach((item) => {
-        item.style.display =
-          category === "all" || item.classList.contains(category)
-            ? "block"
-            : "none";
+          document.querySelectorAll(".gallery-item").forEach((item) => {
+            item.style.display =
+              category === "all" || item.classList.contains(category)
+                ? "block"
+                : "none";
+          });
+        });
       });
     });
-  });
-});
-</script>
+  </script>
 
-<script>
-  document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+  <!-- Contact form WhatsApp -->
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    const nameField = document.getElementById("name");
-    const contactField = document.getElementById("contact");
-    const workTypeField = document.getElementById("workType");
-    const messageField = document.getElementById("message");
+      const nameField = document.getElementById("name");
+      const contactField = document.getElementById("contact");
+      const workTypeField = document.getElementById("workType");
+      const messageField = document.getElementById("message");
 
-    if (!nameField || !contactField || !workTypeField || !messageField) {
-      alert("Form fields missing. Please reload the page.");
-      return;
-    }
+      if (!nameField || !contactField || !workTypeField || !messageField) {
+        alert("Form fields missing. Please reload the page.");
+        return;
+      }
 
-    const name = nameField.value.trim();
-    const contact = contactField.value.trim();
-    const workType = workTypeField.value;
-    const message = messageField.value.trim();
+      const name = nameField.value.trim();
+      const contact = contactField.value.trim();
+      const workType = workTypeField.value;
+      const message = messageField.value.trim();
 
-    if (!name || !contact || !workType || !message) {
-      alert("Please fill out all fields.");
-      return;
-    }
+      if (!name || !contact || !workType || !message) {
+        alert("Please fill out all fields.");
+        return;
+      }
 
-    const waMessage = `
+      const waMessage = `
 New Inquiry from Vaishnavi Furniture
 
 👤 Name: ${name}
@@ -361,106 +334,21 @@ New Inquiry from Vaishnavi Furniture
 🛠 Type of Work: ${workType}
 📝 Message:
 ${message}
-    `.trim();
+      `.trim();
 
-    const phone = "917972803288"; // Replace with actual WhatsApp number
-    const encoded = encodeURIComponent(waMessage);
-    const waLink = `https://wa.me/${phone}?text=${encoded}`;
+      const phone = "917972803288";
+      const encoded = encodeURIComponent(waMessage);
+      const waLink = `https://wa.me/${phone}?text=${encoded}`;
 
-    window.open(waLink, "_blank");
-    alert("✅ Thank you! Your inquiry has been forwarded via WhatsApp.");
-    document.getElementById("contact-form").reset();
-  });
-</script>
-
-<script>
-  const TESTIMONIAL_KEY = "vaishnavi_testimonials";
-  let showAllReviews = false;
-
-  function getTestimonials() {
-    return JSON.parse(localStorage.getItem(TESTIMONIAL_KEY)) || [
-      { text: "Amazing craftsmanship on our Mandir design. Truly top-notch work!", author: "Priya Sharma, Pune" },
-      { text: "Vaishnavi Furniture turned our interior dreams into reality.", author: "Rohit Mehta, Nashik" },
-      { text: "Professional, creative, and very responsive. Highly recommended.", author: "Aditi Deshmukh, Mumbai" }
-    ];
-  }
-
-  function saveTestimonials(testimonials) {
-    localStorage.setItem(TESTIMONIAL_KEY, JSON.stringify(testimonials));
-  }
-
-  function renderTestimonials() {
-    const list = document.getElementById("testimonial-list");
-    const btn = document.getElementById("toggle-testimonials");
-    const testimonials = getTestimonials().slice().reverse();
-    list.innerHTML = "";
-
-    const visible = showAllReviews ? testimonials : testimonials.slice(0, 3);
-
-    visible.forEach(t => {
-      const col = document.createElement("div");
-      col.className = "col-md-4 mb-4";
-      col.innerHTML = `
-        <div class="card shadow-sm h-100">
-          <div class="card-body">
-            <p class="card-text">"${t.text}"</p>
-            <h6 class="card-subtitle text-muted">– ${t.author}</h6>
-          </div>
-        </div>
-      `;
-      list.appendChild(col);
+      window.open(waLink, "_blank");
+      alert("✅ Thank you! Your inquiry has been forwarded via WhatsApp.");
+      document.getElementById("contact-form").reset();
     });
+  </script>
 
-    if (testimonials.length > 3) {
-      btn.classList.remove("d-none");
-      btn.textContent = showAllReviews ? "Hide Reviews" : "View More";
-    } else {
-      btn.classList.add("d-none");
-    }
-  }
-
-  // Toggle View More
-  document.getElementById("toggle-testimonials").addEventListener("click", function () {
-    showAllReviews = !showAllReviews;
-    renderTestimonials();
-  });
-
-  // Handle form submit
-  document.getElementById("testimonial-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const text = document.getElementById("review").value.trim();
-    const author = document.getElementById("author").value.trim();
-    if (!text || !author) return;
-
-    const testimonials = getTestimonials();
-    testimonials.push({ text, author });
-    saveTestimonials(testimonials);
-    renderTestimonials();
-
-    this.reset();
-
-    // Show success message
-    const success = document.getElementById("review-success");
-    success.classList.remove("d-none");
-    setTimeout(() => success.classList.add("d-none"), 3000);
-
-    // Scroll to top of testimonial section
-    document.getElementById("testimonials").scrollIntoView({ behavior: "smooth" });
-  });
-
-  renderTestimonials();
-</script>
-
-
-
-
-
-    
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script defer src="assets/js/cart.js"></script>
-<script type="module" src="assets/js/products.js"></script>
-<script defer src="assets/js/filter.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="assets/js/cart.js"></script>
+  <script type="module" src="assets/js/products.js"></script>
 </body>
 </html>
