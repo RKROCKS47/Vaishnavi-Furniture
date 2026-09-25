@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     col.innerHTML = `
       <div class="card shadow-sm h-100">
-        <img src="${product.image}" class="card-img-top" alt="${product.name}">
+        <img src="${product.image}" class="card-img-top" alt="${product.name}" loading="lazy">
         <div class="card-body">
           <h5 class="card-title">${product.name}</h5>
           <p class="card-text text-muted">₹${product.price.toLocaleString()}</p>
@@ -40,17 +40,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     galleryGrid.appendChild(col);
   });
 });
-
-function addToCart(productId) {
-  let cart = JSON.parse(localStorage.getItem("vaishnavi_cart")) || [];
-  const index = cart.findIndex(item => item.productId === productId);
-
-  if (index !== -1) {
-    cart[index].qty += 1;
-  } else {
-    cart.push({ productId, qty: 1 });
-  }
-
-  localStorage.setItem("vaishnavi_cart", JSON.stringify(cart));
-  alert("🛒 Product added to cart!");
-}

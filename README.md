@@ -1,56 +1,32 @@
 # Vaishnavi Furniture 🪑
 
-Vaishnavi Furniture is a modern furniture and cooling solutions website built to showcase products like sofas, beds,mandir, wardrobes, and cnc designs for a local retail business. It focuses on clean UI, simple navigation, and a responsive layout suitable for real-world use.
+Website for Vaishnavi Furniture, a furniture retail shop in Risod, Maharashtra — showcasing CNC designs, mandirs, beds, wardrobes, kitchens and more, with cart, checkout, and WhatsApp ordering.
 
 ## 🚀 Live Demo
 
-- Live Site: https://vaishnavi-furniture-4b2d9.web.app/ 
+- https://vaishnavifurniture.in/
 
 ## ✨ Features
 
-- Responsive layout for mobile, tablet, and desktop users.  
-- Product‑centric sections for furniture and coolers.  
-- Simple, clean navigation for quick access to key pages.  
-- Business‑ready design suitable for local shops and showrooms.  
-- Easy to extend with backend / database for dynamic products.
+- Product gallery loaded from Firestore, with category filters
+- Cart & checkout flow, orders forwarded via WhatsApp
+- Customer reviews section
+- Admin panel (Firebase Auth): add/edit/delete products, image uploads via Cloudinary, order management
+- Responsive Bootstrap layout for mobile, tablet, and desktop
 
 ## 🛠 Tech Stack
 
-- Frontend: HTML, CSS, JavaScript  
-- Hosting: Firebase Hosting (web.app)  
-- Tools: Git, GitHub
+- HTML, CSS, JavaScript + Bootstrap 5
+- Firebase Hosting, Firestore, Firebase Auth
+- Cloudinary (image uploads)
 
+## Deploy
 
-# 1. Clone the repository
-git clone https://github.com/<your-username>/<your-repo-name>.git
-
-# 2. Move into the project folder
-cd <your-repo-name>
-
-# 3. Install dependencies (if applicable)
-npm install
-
-📦 Build & Deploy
-# 4. Start the development server
-npm run dev     # or npm start / npm run serve depending on your setup
-
-# Build for production (if using a framework)
-npm run build
-
-# Firebase deployment (example)
-firebase login
-firebase init hosting
+```bash
 firebase deploy
+```
 
-📬 Contact
-For inquiries about the website or business:
+## 📬 Contact
 
-Owner: Vaishnavi Furniture
-
-Location: Risod, Maharashtra, India 
-
-Email:Rohitingale586@gmail.com
-
-Phone:7972803288
-
-
+Vaishnavi Furniture, Risod, Maharashtra, India
+Phone: +91 79728 03288

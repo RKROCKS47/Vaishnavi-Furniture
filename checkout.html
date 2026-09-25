@@ -111,13 +111,16 @@
 
     const total = await renderCheckoutCart();
 
+    const now = new Date().toISOString();
     const order = {
       customer: { name, phone, address },
       items: cart,
       total,
-      orderStatus: "new",
+      orderStatus: "received",
       paymentStatus: "cod",
-      createdAt: new Date().toISOString()
+      statusHistory: [{ status: "received", at: now }],
+      createdAt: now,
+      updatedAt: now
     };
 
     try {
