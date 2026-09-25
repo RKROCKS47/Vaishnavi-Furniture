@@ -1,0 +1,121 @@
+diff --git a/cart.html b/cart.html
+index 2210195..7d8147a 100644
+--- a/cart.html
++++ b/cart.html
+@@ -4,6 +4,8 @@
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <title>Shopping Cart – Vaishnavi Furniture</title>
++  <meta name="description" content="Your Vaishnavi Furniture shopping cart — review handcrafted CNC furniture before checkout." />
++  <meta name="robots" content="noindex, follow" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ </head>
+ <body>
+diff --git a/checkout.html b/checkout.html
+index 701c1de..f039c72 100644
+--- a/checkout.html
++++ b/checkout.html
+@@ -4,6 +4,8 @@
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <title>Checkout - Vaishnavi Furniture</title>
++  <meta name="description" content="Checkout at Vaishnavi Furniture, Risod — complete your furniture order securely." />
++  <meta name="robots" content="noindex, follow" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ </head>
+ <body>
+diff --git a/index.html b/index.html
+index 08bc5cc..904a5d8 100644
+--- a/index.html
++++ b/index.html
+@@ -3,7 +3,51 @@
+ <head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-  <title>Vaishnavi Furniture</title>
++  <title>Vaishnavi Furniture | CNC Furniture & Home Decor in Risod, Maharashtra</title>
++  <meta name="description" content="Vaishnavi Furniture, Risod — elegant CNC designs for every space: mandirs, jali panels, modular kitchens, showcases & custom furniture. Visit our Risod, Maharashtra shop or order online." />
++  <meta name="keywords" content="furniture Risod, CNC furniture Maharashtra, wooden mandir, jali design, modular kitchen Risod, Vaishnavi Furniture" />
++  <meta name="robots" content="index, follow" />
++  <link rel="canonical" href="https://vaishnavifurniture.in/" />
++
++  <link rel="icon" type="image/jpeg" href="/assets/images/logo.jpg" />
++  <link rel="apple-touch-icon" href="/assets/images/logo.jpg" />
++  <meta name="theme-color" content="#A0522D" />
++
++  <!-- Open Graph / Facebook -->
++  <meta property="og:type" content="website" />
++  <meta property="og:site_name" content="Vaishnavi Furniture" />
++  <meta property="og:title" content="Vaishnavi Furniture | CNC Furniture & Home Decor in Risod, Maharashtra" />
++  <meta property="og:description" content="Elegant CNC designs for every space — mandirs, jali panels, kitchens, showcases & custom furniture in Risod, Maharashtra." />
++  <meta property="og:url" content="https://vaishnavifurniture.in/" />
++  <meta property="og:image" content="https://vaishnavifurniture.in/assets/images/logo.jpg" />
++  <meta property="og:image:alt" content="Vaishnavi Furniture logo" />
++
++  <!-- Twitter -->
++  <meta name="twitter:card" content="summary_large_image" />
++  <meta name="twitter:title" content="Vaishnavi Furniture | CNC Furniture & Home Decor in Risod, Maharashtra" />
++  <meta name="twitter:description" content="Elegant CNC designs for every space — mandirs, jali panels, kitchens, showcases & custom furniture in Risod, Maharashtra." />
++  <meta name="twitter:image" content="https://vaishnavifurniture.in/assets/images/logo.jpg" />
++
++  <!-- Structured data: local business -->
++  <script type="application/ld+json">
++  {
++    "@context": "https://schema.org",
++    "@type": "FurnitureStore",
++    "name": "Vaishnavi Furniture",
++    "slogan": "Elegant CNC Designs for Every Space",
++    "url": "https://vaishnavifurniture.in/",
++    "logo": "https://vaishnavifurniture.in/assets/images/logo.jpg",
++    "image": "https://vaishnavifurniture.in/assets/images/furniture.avif",
++    "telephone": "+917972803288",
++    "priceRange": "₹₹",
++    "address": {
++      "@type": "PostalAddress",
++      "addressLocality": "Risod",
++      "addressRegion": "Maharashtra",
++      "addressCountry": "IN"
++    }
++  }
++  </script>
+ 
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+diff --git a/robots.txt b/robots.txt
+new file mode 100644
+index 0000000..c796732
+--- /dev/null
++++ b/robots.txt
+@@ -0,0 +1,8 @@
++User-agent: *
++Allow: /
++
++# Keep admin pages out of search results
++Disallow: /admin/
++Disallow: /admin
++
++Sitemap: https://vaishnavifurniture.in/sitemap.xml
+diff --git a/sitemap.xml b/sitemap.xml
+new file mode 100644
+index 0000000..cc56583
+--- /dev/null
++++ b/sitemap.xml
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
++  <url>
++    <loc>https://vaishnavifurniture.in/</loc>
++    <changefreq>weekly</changefreq>
++    <priority>1.0</priority>
++  </url>
++  <url>
++    <loc>https://vaishnavifurniture.in/cart.html</loc>
++    <changefreq>monthly</changefreq>
++    <priority>0.4</priority>
++  </url>
++  <url>
++    <loc>https://vaishnavifurniture.in/checkout.html</loc>
++    <changefreq>monthly</changefreq>
++    <priority>0.4</priority>
++  </url>
++</urlset>
