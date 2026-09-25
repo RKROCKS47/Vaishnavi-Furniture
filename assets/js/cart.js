@@ -49,6 +49,9 @@ function updateCartFab(pulse) {
 }
 
 document.addEventListener("DOMContentLoaded", () => updateCartFab(false));
+// Refresh the badge when returning via the browser back button
+// (bfcache restores the old DOM without re-running page load)
+window.addEventListener("pageshow", () => updateCartFab(false));
 
 function addToCart(productId) {
   let cart = getCart();
@@ -68,6 +71,7 @@ function addToCart(productId) {
 function removeFromCart(productId) {
   let cart = getCart().filter(i => i.productId !== productId);
   saveCart(cart);
+  updateCartFab(false);
 }
 
 function updateQty(productId, qty) {
@@ -75,4 +79,5 @@ function updateQty(productId, qty) {
   const item = cart.find(i => i.productId === productId);
   if (item) item.qty = qty;
   saveCart(cart);
+  updateCartFab(false);
 }
