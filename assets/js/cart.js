@@ -29,6 +29,27 @@ function saveCart(cart) {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
+function cartCount() {
+  return getCart().reduce((n, item) => n + (item.qty || 0), 0);
+}
+
+// Floating "View Cart" button: show when cart has items, update badge, pulse on add
+function updateCartFab(pulse) {
+  const fab = document.getElementById("cart-fab");
+  if (!fab) return;
+  const n = cartCount();
+  const badge = document.getElementById("cart-fab-count");
+  if (badge) badge.textContent = n;
+  fab.classList.toggle("d-none", n === 0);
+  if (pulse && n > 0) {
+    fab.classList.remove("pulse");
+    void fab.offsetWidth; // restart the animation
+    fab.classList.add("pulse");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => updateCartFab(false));
+
 function addToCart(productId) {
   let cart = getCart();
   const item = cart.find(i => i.productId === productId);
@@ -41,6 +62,7 @@ function addToCart(productId) {
 
   saveCart(cart);
   showToast("Added to cart!");
+  updateCartFab(true);
 }
 
 function removeFromCart(productId) {
