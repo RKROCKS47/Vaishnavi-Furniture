@@ -147,19 +147,45 @@
 
     let productMap = {};
 
+    function showLoadError(e) {
+      let banner = document.getElementById("load-error");
+      if (!banner) {
+        banner = document.createElement("div");
+        banner.id = "load-error";
+        banner.className = "alert alert-danger";
+        document.querySelector(".container").prepend(banner);
+      }
+      const msg = e && e.code === "permission-denied"
+        ? "Permission denied: please log in again as admin (login.html)."
+        : "Could not load orders: " + ((e && e.message) || e);
+      banner.textContent = "\u26A0\uFE0F " + msg;
+      banner.classList.remove("d-none");
+    }
+
+    function hideLoadError() {
+      const banner = document.getElementById("load-error");
+      if (banner) banner.classList.add("d-none");
+    }
+
     async function loadOrders() {
-      const productSnap = await getDocs(productCollection);
-      productMap = {};
-      productSnap.forEach((p) => (productMap[p.id] = p.data()));
+      hideLoadError();
+      try {
+        const productSnap = await getDocs(productCollection);
+        productMap = {};
+        productSnap.forEach((p) => (productMap[p.id] = p.data()));
 
-      const orderSnap = await getDocs(orderCollection);
-      allOrders = [];
-      orderSnap.forEach((d) => allOrders.push({ id: d.id, ...d.data() }));
-      // Newest first
-      allOrders.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+        const orderSnap = await getDocs(orderCollection);
+        allOrders = [];
+        orderSnap.forEach((d) => allOrders.push({ id: d.id, ...d.data() }));
+        // Newest first
+        allOrders.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
 
-      renderFilters();
-      renderList();
+        renderFilters();
+        renderList();
+      } catch (e) {
+        console.error(e);
+        showLoadError(e);
+      }
     }
 
     function renderFilters() {
