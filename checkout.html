@@ -38,6 +38,19 @@
   <button type="submit" class="btn btn-success w-100">Place Order via WhatsApp</button>
 </form>
 
+<div id="order-success" class="d-none text-center">
+  <div class="alert alert-success">
+    <h4>✅ Order Placed Successfully!</h4>
+    <p class="mb-1">Your Order ID:</p>
+    <h5><code id="order-id-display" class="fs-5"></code>
+      <button type="button" class="btn btn-sm btn-outline-secondary ms-2" id="copy-order-id">Copy</button>
+    </h5>
+    <p class="text-muted small">Save this ID — you'll need it to track your order.</p>
+    <a id="track-order-link" href="#" class="btn btn-primary">📦 Track Your Order</a>
+    <a href="index.html" class="btn btn-outline-secondary ms-2">Back to Home</a>
+  </div>
+</div>
+
 <!--checkout  -->
   <script type="module">
   import { db } from "./assets/js/firebase.js";
@@ -123,8 +136,10 @@
       updatedAt: now
     };
 
+    let orderId = null;
     try {
-      await addDoc(orderCollection, order);
+      const orderRef = await addDoc(orderCollection, order);
+      orderId = orderRef.id;
       console.log("✅ Order saved to Firestore");
     } catch (err) {
       console.error("❌ Firestore error:", err);
@@ -132,7 +147,7 @@
 
     const waMsg = `
 🛒 New Order from Vaishnavi Furniture
-
+${orderId ? `🆔 Order ID: ${orderId}\n` : ""}
 👤 Name: ${name}
 📞 Phone: ${phone}
 🏠 Address: ${address}
@@ -144,15 +159,28 @@ ${cart.map(item => {
     }).join("\n")}
 
 💰 Total: ₹${total.toLocaleString()}
+${orderId ? `📦 Track: https://vaishnavifurniture.in/track-order.html?id=${orderId}` : ""}
     `.trim();
 
    const waLink = `https://wa.me/917972803288?text=${encodeURIComponent(waMsg)}`;
 
     window.open(waLink, "_blank");
 
-    alert("✅ Order placed! Redirecting...");
-    localStorage.removeItem(cartKey);
-    window.location.href = "index.html";
+    if (orderId) {
+      document.getElementById("checkout-form").classList.add("d-none");
+      document.getElementById("order-id-display").textContent = orderId;
+      document.getElementById("track-order-link").href = `track-order.html?id=${orderId}`;
+      document.getElementById("copy-order-id").onclick = () => {
+        navigator.clipboard.writeText(orderId).catch(() => {});
+      };
+      document.getElementById("order-success").classList.remove("d-none");
+      localStorage.removeItem(cartKey);
+      window.scrollTo(0, 0);
+    } else {
+      alert("✅ Order sent via WhatsApp!");
+      localStorage.removeItem(cartKey);
+      window.location.href = "index.html";
+    }
   });
 </script>
 
